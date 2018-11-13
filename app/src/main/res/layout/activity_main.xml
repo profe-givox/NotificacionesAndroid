@@ -16,7 +16,18 @@
         android:layout_alignParentTop="true"
         />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Agendar alarma"
+        android:onClick="btnAL_click"
+        android:id="@+id/btnAM"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/btnNS"
 
+        />
+
+ª
 
 
 </RelativeLayout>

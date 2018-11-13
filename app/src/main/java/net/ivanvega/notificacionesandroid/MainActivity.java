@@ -1,5 +1,6 @@
 package net.ivanvega.notificacionesandroid;
 
+import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -15,6 +16,8 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
 
     private String CHANNEL_ID="CANALID";
+    AlarmManager am;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +70,25 @@ public class MainActivity extends AppCompatActivity {
         notificationManager.notify(1001, mBuilder.build());
 
 
+
+    }
+
+    public void btnAL_click(View view) {
+
+         am = (AlarmManager)   getSystemService(ALARM_SERVICE);
+
+
+        Intent intent = new Intent(getApplicationContext(),  PlanaficarAlarma.class);
+
+        PendingIntent pi =
+                PendingIntent.getBroadcast(getApplicationContext(),
+                        0, intent, 0);
+
+
+        am.setRepeating(
+                AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                10000,
+                5*1000, pi);
 
     }
 }
